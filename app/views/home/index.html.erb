@@ -1,0 +1,23 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
+
+<form action="/home/upload"
+      class="dropzone"
+      id="my-awesome-dropzone"></form>
+<table>
+<% @dat.each do |f| %>
+    <tr>
+      <td><%= f.filename %></td>
+      <td><%= link_to "<button>Download!</button>".html_safe, url_for({:controller => "home", :action => 'download', :pa => f.filename}), :id => "button_id", :class => "button_class" %></td>
+     
+      </tr>
+
+      <%end %>
+      </table>
+
+
+      <hr/>
